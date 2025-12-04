@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Freedom of Expression Typesetter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- LEFT: CONTROL PANEL -->
+    <aside class="controls">
+      <h1 class="logo">Uncensor Type Project</h1>
+
+      <section class="control-block">
+        <label for="textInput" class="control-label">Text</label>
+        <textarea id="textInput" rows="2" placeholder="Type your text here">You who read me, are You sure of understanding my language?</textarea>
+      </section>
+
+      <section class="control-block">
+        <label for="countrySelect" class="control-label">Country</label>
+        <select id="countrySelect">
+          <option value="">Loading countries…</option>
+        </select>
+      </section>
+
+      <section class="control-block">
+        <div class="slider-header">
+          <label for="yearSlider" class="control-label">Year</label>
+          <span id="yearValue" class="value-pill">–</span>
+        </div>
+        <input type="range" id="yearSlider" min="1800" max="2020" value="2000" />
+        <div class="slider-minmax">
+          <span id="yearMinLabel">–</span>
+          <span id="yearMaxLabel">–</span>
+        </div>
+      </section>
+
+      <section class="control-block">
+        <h2 class="section-title">Typography</h2>
+
+        <label class="control-sub">
+          Font size
+          <input type="range" id="fontSizeInput" min="32" max="200" value="80" />
+          <span id="fontSizeValue" class="value-pill">120 px</span>
+        </label>
+
+        <label class="control-sub">
+          Letter spacing
+          <input type="range" id="letterSpacingInput" min="0" max="80" value="10" />
+          <span id="letterSpacingValue" class="value-pill">10</span>
+        </label>
+
+        <label class="control-sub">
+          Line spacing
+          <input type="range" id="lineHeightInput" min="80" max="200" value="120" />
+          <span id="lineHeightValue" class="value-pill">1.2×</span>
+        </label>
+      </section>
+
+      <section class="info-block">
+        <h2 class="section-title">Reading the output</h2>
+        <p class="small-text">
+          Color represents the level of freedom of expression:
+          <strong>green = more free</strong>, <strong>red = less free</strong>.
+          Distortion adds extra Bézier control points to the glyph shapes:
+          <strong>the lower the score, the more complex and noisy the letters become</strong>.
+        </p>
+      </section>
+    </aside>
+
+    <!-- RIGHT: OUTPUT AREA -->
+    <main class="output-area">
+      <header class="score-panel" id="scorePanel">
+        <div class="score-pill">
+          <span class="score-label">Country</span>
+          <span class="score-value" id="panelCountry">–</span>
+        </div>
+        <div class="score-pill">
+          <span class="score-label">Year</span>
+          <span class="score-value" id="panelYear">–</span>
+        </div>
+        <div class="score-pill">
+          <span class="score-label">Score</span>
+          <span class="score-value" id="panelScore">–</span>
+        </div>
+      </header>
+
+      <section class="canvas-wrapper" id="canvasWrapper">
+        <canvas id="textCanvas"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <!-- opentype.js from CDN -->
+  <script src="https://unpkg.com/opentype.js@latest/dist/opentype.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.4/opentype.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

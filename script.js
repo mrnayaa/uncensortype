@@ -1,8 +1,7 @@
-// CONFIG
 // CSV file should be in the same folder as index.html
 const CSV_URL = "freedom-of-expression-index.csv";
 
-// Path to your font file (ttf/otf/woff).
+// Path to the font file (ttf/otf/woff).
 const FONT_URL = "Rules-Regular.woff";
 
 // How strong the distortion can get at the worst freedom score
@@ -313,8 +312,7 @@ function measureLineWidth(str, font, scale, letterSpacing) {
 }
 
 /**
- * Layout text into multiple lines so it stays inside the canvas box.
- * We do simple word-based wrapping.
+ * Layout text into multiple lines
  */
 function layoutTextIntoLines(text, maxWidth, font, scale, letterSpacing) {
   const words = text.split(/\s+/);
